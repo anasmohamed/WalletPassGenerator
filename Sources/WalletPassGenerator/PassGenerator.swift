@@ -42,12 +42,12 @@ public struct PassGenerator {
         // generate additional certificates
         // generate passcertificate.pem
         try shellOut(
-            to: "openssl pkcs12 -in \(certificateName) -clcerts -nokeys -out passcertificate.pem -passin pass:",
+            to: "openssl pkcs12 -in \(certificateName) -clcerts -nokeys -out passcertificate.pem -passin pass: -legacy",
             at: url.absoluteString
         )
         // generate passkey.pem
         try shellOut(
-            to: "openssl pkcs12 -in \(certificateName) -nocerts -out passkey.pem -passin pass: -passout pass:12345",
+            to: "openssl pkcs12 -in \(certificateName) -nocerts -out passkey.pem -passin pass: -passout pass:12345 -legacy" ,
             at: url.absoluteString
         )
         
